@@ -1,0 +1,14 @@
+.banner {
+  background-image: url('../../../../../assets/siema.jpg'); /* Dodaj ścieżkę do obrazu tła */
+  background-size: cover;
+  background-position: center;
+  color: black;
+}
+
+.banner h1 {
+  font-size: 3.5em; /* Dostosuj rozmiar czcionki według potrzeb */
+}
+
+.banner p {
+  font-size: 1.5em; /* Dostosuj rozmiar czcionki według potrzeb */
+}

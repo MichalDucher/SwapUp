@@ -1,0 +1,33 @@
+.popular-categories {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .popular-categories h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .popular-categories ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .popular-categories li {
+    display: inline-block;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .popular-categories li:hover {
+    background-color: #e0e0e0;
+  }
+  
