@@ -1,20 +1,23 @@
-// pages/offers/Offers.jsx
+
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import { ITEMS_URL } from '../../data/api';
-import { authorizedFetch } from '../../data/authorized-fetch'
 import Navi from '../../components/Navi'
+import { useAuth } from '../../../context/AuthContext'; // Importuj kontekst autoryzacji
 import './styles/Offers.css';
 
 const Offers = () => {
   const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const { isAuthenticated, setLastSelectedItem } = useAuth(); // Pobierz informacje o zalogowaniu i ostatnio wybranym przedmiocie z kontekstu autoryzacji
+  const nav = useNavigate(); // Pobierz historię przeglądarki
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await authorizedFetch(ITEMS_URL);
+        const response = await fetch(ITEMS_URL);
         const data = await response.json();
         setItems(data);
       } catch (error) {
@@ -33,6 +36,15 @@ const Offers = () => {
   const handleCloseModal = () => {
     setSelectedItem(null);
     setShowModal(false);
+  };
+
+  const handlePurchase = () => {
+    if (isAuthenticated) {
+      nav(`/purchase/${selectedItem.id}`);
+    } else {
+      setLastSelectedItem(selectedItem); // Zapisz informacje o wybranym przedmiocie w stanie kontekstu autoryzacji
+      nav('/login');
+    }
   };
 
   return (
@@ -70,6 +82,9 @@ const Offers = () => {
           <Modal.Footer>
             <Button variant="secondary" onClick={handleCloseModal}>
               Close
+            </Button>
+            <Button variant="primary" onClick={handlePurchase}>
+              {isAuthenticated ? 'Purchase' : 'Login to Purchase'}
             </Button>
           </Modal.Footer>
         </Modal>

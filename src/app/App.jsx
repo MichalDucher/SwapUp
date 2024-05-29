@@ -1,34 +1,34 @@
+// src/App.jsx
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css'
-import Dashboard from './pages/dashboard/Dashboard';
-import Login from './pages/login/Login';
-import Preferences from './pages/preferences/Preferences';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from '../context/AuthContext';
+import { useState } from 'react';
 import Home from './pages/home/Home';
 import Offers from './pages/offers/Offers';
-import useToken from './hooks/useToken';
+import Profile from './pages/profile/Profile';
+import Login from './pages/login/Login';
+import Purchase from './pages/purchase/Purchase';
 
-function App() {
 
-  const { token, setToken } = useToken();
-
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
+const App = () => {
+  const [token, setToken] = useState(null); // Tutaj inicjujesz stan tokenu
 
   return (
-    <div className="wrapper">
-      <h1>Application</h1>
-      <BrowserRouter>
+    <AuthProvider>
+      <Router>
         <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/preferences" element={<Preferences />} />
-        <Route path="/offers" element={<Offers />} />
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/login"
+            element={<Login setToken={setToken} />} // Tutaj przekazujesz setToken do komponentu Login
+          />
+          <Route path="/purchase/:id" element={<Purchase />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </Router>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
