@@ -1,7 +1,8 @@
 // src/pages/login/Login.jsx
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { AUTHENTICATE_URL } from '../../data/api';
+import { AUTHENTICATE_URL, USERS_URL } from '../../data/api';
+import { authorizedFetch } from '../../data/authorized-fetch';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import './Login.css';
@@ -33,6 +34,15 @@ export default function Login({ setToken }) {
       sessionStorage.setItem('username', username);
       sessionStorage.setItem('password', password);
       login(response.token, response.user);
+
+      const userResponse = await authorizedFetch(USERS_URL, {
+        method: 'GET',
+      });
+
+      const userData = await userResponse.json();
+      const foudUser = userData.find(user => user.email === sessionStorage.getItem("username"));
+      sessionStorage.setItem("id", foudUser.id);
+
       navigate('/');
     }
   };

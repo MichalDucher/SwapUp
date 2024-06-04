@@ -8,6 +8,7 @@ import Offers from './pages/offers/Offers';
 import Profile from './pages/profile/Profile';
 import Login from './pages/login/Login';
 import Purchase from './pages/purchase/Purchase';
+import AddOffer from './pages/offers/AddOffer';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offers" element={<Offers />} />
+          <Route path="/add-offer" element={<AddOffer />} />
           <Route path="/profile" element={<Profile />} />
           <Route
             path="/login"

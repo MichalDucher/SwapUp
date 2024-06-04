@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../../context/AuthContext';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Navi from '../../components/Navi';
 import './styles/Profile.css';
 
@@ -13,6 +14,7 @@ const Profile = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
   const [messageType, setMessageType] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     if (user) {
@@ -36,7 +38,7 @@ const Profile = () => {
 
   return (
     <Container className="profile-container">
-        <Navi />
+      <Navi />
       <h2>User Profile</h2>
       {message && <Alert variant={messageType}>{message}</Alert>}
       <Form>
@@ -80,6 +82,13 @@ const Profile = () => {
           Change Password
         </Button>
       </Form>
+      <Button
+        variant="secondary"
+        className="mt-3"
+        onClick={() => navigate('/add-offer')} // Add button to navigate to add-offer page
+      >
+        Add Offer
+      </Button>
     </Container>
   );
 };

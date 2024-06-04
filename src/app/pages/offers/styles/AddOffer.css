@@ -1,0 +1,35 @@
+/* src/pages/add-offer/styles/AddOffer.css */
+.add-offer-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-offer-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+  }
+  
+  .add-offer-container .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .add-offer-container .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .add-offer-container .form-control {
+    border-radius: 4px;
+    padding: 0.75rem;
+  }
+  
+  .add-offer-container .btn-primary {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+  
