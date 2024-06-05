@@ -7,3 +7,4 @@ export const AUTH_URL = `${BASE_URL}/auth`;
 export const USERS_URL = `${BASE_URL}/users`;
 export const REGISTER_URL = `${AUTH_URL}/register`;
 export const AUTHENTICATE_URL = `${AUTH_URL}/authenticate`;
+export const TRANSACTION_URL = `${BASE_URL}/transactions`;

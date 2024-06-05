@@ -1,92 +1,81 @@
-import React, { useState } from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import Navi from '../../components/Navi';
-import './styles/Purchase.css';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button, Container, Alert } from 'react-bootstrap';
+import { authorizedFetch } from '../../data/authorized-fetch';
+import { useAuth } from '../../../context/AuthContext';
+import { ITEMS_URL, TRANSACTION_URL } from '../../data/api';
 
 const Purchase = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    address: '',
-    city: '',
-    zipCode: '',
-    country: '',
-    creditCardNumber: '',
-    expiryDate: '',
-    cvv: '',
-  });
+  const { id } = useParams();
+  const [item, setItem] = useState(null);
+  const [message, setMessage] = useState(null);
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  useEffect(() => {
+    const fetchItem = async () => {
+      try {
+        const response = await authorizedFetch(`${ITEMS_URL}/${id}`);
+        const data = await response.json();
+        setItem(data);
+      } catch (error) {
+        console.error('Error fetching item:', error);
+      }
+    };
+
+    fetchItem();
+  }, [id]);
+
+  const handleConfirmPurchase = async () => {
+    const payload = {
+      id: Math.random().toString(36).substring(2),
+      buyerId: sessionStorage.getItem("id"),
+      sellerId: item.ownerId,
+      productsId: [item.id],
+      totalPrice: item.price,
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      const response = await authorizedFetch(`${TRANSACTION_URL}`, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setMessage({ text: 'Purchase successful!', type: 'success' });
+        setTimeout(() => {
+          navigate('/offers');
+        }, 3000);
+      } else {
+        const errorText = await response.text();
+        throw new Error(errorText);
+      }
+    } catch (error) {
+      console.error('Error confirming purchase:', error);
+      setMessage({ text: 'Failed to complete purchase.', type: 'danger' });
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Tutaj możesz dodać logikę do przetwarzania danych zakupu
-    console.log('Form data:', formData);
+  const handleDeclinePurchase = () => {
+    navigate('/offers');
   };
+
+  if (!item) return <div>Loading...</div>;
 
   return (
     <Container>
-      <Navi />
-      <h2 className="my-4">Purchase</h2>
-      <Form className="purchase-form" onSubmit={handleSubmit}>
-        <Row className="mb-3">
-          <Form.Group as={Col} controlId="fullName">
-            <Form.Label>Full Name</Form.Label>
-            <Form.Control type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} required />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" name="email" value={formData.email} onChange={handleInputChange} required />
-          </Form.Group>
-        </Row>
-
-        <Form.Group controlId="address" className="mb-3">
-          <Form.Label>Address</Form.Label>
-          <Form.Control type="text" name="address" value={formData.address} onChange={handleInputChange} required />
-        </Form.Group>
-
-        <Row className="mb-3">
-          <Form.Group as={Col} controlId="city">
-            <Form.Label>City</Form.Label>
-            <Form.Control type="text" name="city" value={formData.city} onChange={handleInputChange} required />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="zipCode">
-            <Form.Label>Zip Code</Form.Label>
-            <Form.Control type="text" name="zipCode" value={formData.zipCode} onChange={handleInputChange} required />
-          </Form.Group>
-        </Row>
-
-        <Form.Group controlId="country" className="mb-3">
-          <Form.Label>Country</Form.Label>
-          <Form.Control type="text" name="country" value={formData.country} onChange={handleInputChange} required />
-        </Form.Group>
-
-        <Form.Group controlId="creditCardNumber" className="mb-3">
-          <Form.Label>Credit Card Number</Form.Label>
-          <Form.Control type="text" name="creditCardNumber" value={formData.creditCardNumber} onChange={handleInputChange} required />
-        </Form.Group>
-
-        <Row className="mb-3">
-          <Form.Group as={Col} controlId="expiryDate">
-            <Form.Label>Expiry Date</Form.Label>
-            <Form.Control type="text" name="expiryDate" value={formData.expiryDate} onChange={handleInputChange} required />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="cvv">
-            <Form.Label>CVV</Form.Label>
-            <Form.Control type="text" name="cvv" value={formData.cvv} onChange={handleInputChange} required />
-          </Form.Group>
-        </Row>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+      <h2>Purchase {item.name}</h2>
+      {message && <Alert variant={message.type}>{message.text}</Alert>}
+      <p><strong>Description:</strong> {item.description}</p>
+      <p><strong>Price:</strong> ${item.price}</p>
+      <p><strong>Category:</strong> {item.category.name}</p>
+      <Button variant="primary" onClick={handleConfirmPurchase}>
+        Confirm Purchase
+      </Button>
+      <Button variant="danger" onClick={handleDeclinePurchase} className="ml-2">
+        Decline
+      </Button>
     </Container>
   );
 };

@@ -9,10 +9,11 @@ import Profile from './pages/profile/Profile';
 import Login from './pages/login/Login';
 import Purchase from './pages/purchase/Purchase';
 import AddOffer from './pages/offers/AddOffer';
+import TransactionHistory from './pages/profile/TransactionHistory';
 
 
 const App = () => {
-  const [token, setToken] = useState(null); // Tutaj inicjujesz stan tokenu
+  const [token, setToken] = useState(null); 
 
   return (
     <AuthProvider>
@@ -24,9 +25,10 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route
             path="/login"
-            element={<Login setToken={setToken} />} // Tutaj przekazujesz setToken do komponentu Login
+            element={<Login setToken={setToken} />} 
           />
           <Route path="/purchase/:id" element={<Purchase />} />
+          <Route path="/transaction-history" element={<TransactionHistory />} />
         </Routes>
       </Router>
     </AuthProvider>
