@@ -1,5 +1,38 @@
+.navbar {
+  background-color: #FFFAF0; /* Imposta il colore di sfondo della barra di navigazione */
+  height: 80px; /* Altezza della barra di navigazione */
+  display: flex;
+  align-items: center;
+  position: fixed; /* Rende la navbar fissa */
+  top: 0; /* Posiziona la navbar in cima alla pagina */
+  width: 100%; /* Fa sì che la navbar occupi tutta la larghezza della pagina */
+  z-index: 1000; /* Assicura che la navbar sia al di sopra di altri contenuti */
+  margin-left: 0;
+  padding: 0;
+  left: 0;
+}
+
+.navbar-brand img {
+  height: 100px; /* Altezza del logo */
+  width: 180px; /* Mantiene le proporzioni del logo */
+  margin-right: 40px; /* Spazio tra il logo e i link */
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Spinge i link verso destra */
+}
+
 .navbar-nav .nav-link {
-    margin-right: 1rem;
-    font-size: 1.1rem;
-  }
-  
+  margin-right: 6rem; /* Spazio tra i link */
+  font-size: 1.5rem; /* Dimensione del carattere dei link */
+  color: black;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+  color: grey; /* Cambia colore al passaggio del mouse */
+}
+
+

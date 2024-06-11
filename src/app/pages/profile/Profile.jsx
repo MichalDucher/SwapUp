@@ -98,83 +98,93 @@ const Profile = () => {
   return (
     <Container className="profile-container">
       <Navi />
-      <h2>User Profile</h2>
-      {message && <Alert variant={messageType}>{message}</Alert>}
-      <Form onSubmit={handlePasswordChange}>
-        <Form.Group controlId="formEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            plaintext
-            readOnly
-            defaultValue={email}
-          />
-        </Form.Group>
-        <Form.Group controlId="formOldPassword">
-          <Form.Label>Old Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter old password"
-            required
-            autoComplete="current-password"
-          />
-        </Form.Group>
-        <Form.Group controlId="formNewPassword">
-          <Form.Label>New Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter new password"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            required
-            autoComplete="new-password"
-          />
-        </Form.Group>
-        <Form.Group controlId="formConfirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Confirm new password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            autoComplete="new-password"
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Change Password
-        </Button>
-      </Form>
-      <Button
-        variant="secondary"
-        className="mt-3"
-        onClick={() => navigate('/add-offer')}
-      >
-        Add Offer
-      </Button>
-      <Button variant="secondary" className="mt-3" onClick={() => navigate('/transaction-history')}>
-        Transaction History
-      </Button>
-
-      <h3 className="mt-4">Your Products</h3>
-      {userProducts.length > 0 ? (
-        <ul>
-          {userProducts.map((product) => (
-            <li key={product.id}>
-              <h4>{product.name}</h4>
-              <p>{product.description}</p>
-              <p>Price: {product.price}</p>
-              <p>Category: {product.category.name}</p>
-              <p>{product.id}</p>
-              <Button variant="danger" onClick={() => handleDeleteOffer(product.id)}>
-                Delete Offer
-              </Button>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No products found.</p>
-      )}
+      <div className="profile-credentials">
+        <h2>User Profile</h2>
+        {message && <Alert variant={messageType}>{message}</Alert>}
+        <Form onSubmit={handlePasswordChange}>
+          <Form.Group controlId="formEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              plaintext
+              readOnly
+              defaultValue={email}
+            />
+          </Form.Group>
+          <Form.Group controlId="formOldPassword">
+            <Form.Label>Old Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter old password"
+              required
+              autoComplete="current-password"
+            />
+          </Form.Group>
+          <Form.Group controlId="formNewPassword">
+            <Form.Label>New Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              required
+              autoComplete="new-password"
+            />
+          </Form.Group>
+          <Form.Group controlId="formConfirmPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Confirm new password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              autoComplete="new-password"
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Change Password
+          </Button>
+        </Form>
+        <div className="button-group">
+          <Button
+            variant="secondary"
+            onClick={() => navigate('/add-offer')}
+          >
+            Add Offer
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => navigate('/transaction-history')}
+          >
+            Transaction History
+          </Button>
+        </div>
+      </div>
+      <div className="profile-products">
+        <h3 className="mt-4">Your Products</h3>
+        {userProducts.length > 0 ? (
+          <div className="products-grid">
+            {userProducts.map((product) => (
+              <div className="product-card" key={product.id}>
+                <h4>{product.name}</h4>
+                <img src={product.image} alt={product.name} className="product-image" />
+                <p>{product.description}</p>
+                <p>Price: {product.price}</p>
+                <p>Category: {product.category.name}</p>
+                <Button
+                  variant="danger"
+                  onClick={() => handleDeleteOffer(product.id)}
+                >
+                  Delete Offer
+                </Button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>No products found.</p>
+        )}
+      </div>
     </Container>
   );
 };

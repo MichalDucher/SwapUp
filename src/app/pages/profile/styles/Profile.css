@@ -1,38 +1,106 @@
-/* src/pages/profile/Profile.css */
+
+
 .profile-container {
-  max-width: 600px;
+  
+  margin: 0;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
-  background: #fff;
+
+}
+
+.profile-credentials {
+  background:  rgba(255, 255, 255, 0.8); ;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 4rem;
+  margin-bottom: 2rem;
+  margin-top: 4rem;
 }
 
-.profile-container h2 {
+.profile-credentials h2 {
   margin-bottom: 1.5rem;
   font-size: 1.75rem;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
 }
 
-.profile-container .form-group {
+.profile-credentials .form-group {
   margin-bottom: 1rem;
 }
 
-.profile-container .form-label {
+.profile-credentials .form-label {
   font-weight: 500;
   margin-bottom: 0.5rem;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
 }
 
-.profile-container .form-control {
+.profile-credentials .form-control {
+  border: 1px solid #cccccc;
   border-radius: 4px;
-  padding: 0.75rem;
+  padding: 1rem;
 }
 
-.profile-container .text-center {
+.button-group {
+  display: flex;
+  justify-content: space-between;
   margin-top: 1.5rem;
 }
 
-.profile-container .btn-primary {
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
+.button-group Button {
+  color:  black; 
+}
+
+.button-group Button:nth-child(1) {
+  background-color: #28a745; /* Verde per Add Offer */
+}
+
+.button-group Button:nth-child(2) {
+  background-color: #28a745; /* Verde per Transaction History */
+}
+
+.profile-products {
+  width: auto;
+  
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  
+}
+
+.profile-products h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.products-grid {
+  display: flex; /* Mostra i prodotti in una riga */
+  justify-content: flex-start; /* Allinea i prodotti a sinistra */
+  gap: 20px; /* Aggiunge spazio tra i prodotti */
+  flex-wrap: nowrap; /* Non avvolge i prodotti quando non ci sono abbastanza spazi */
+}
+
+.product-card {
+  width: calc(50% - 20px);
+  margin-left: 0;
+  margin-bottom: 1rem;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+.product-card:last-child {
+  margin-right: 0;
+}
+
+.product-card button {
+  margin-top: 1rem;
+  background-color: #dc3545; /* Rosso per Delete Offer */
+}
+.product-image {
+  width: 100px; /* Imposta la larghezza desiderata */
+  height: auto; /* Imposta l'altezza in base all'aspetto originale dell'immagine */
 }

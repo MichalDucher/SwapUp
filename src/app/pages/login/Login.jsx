@@ -5,6 +5,7 @@ import { AUTHENTICATE_URL, USERS_URL } from '../../data/api';
 import { authorizedFetch } from '../../data/authorized-fetch';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
+import Navi from '../../components/Navi'
 import './Login.css';
 
 async function loginUser(credentials) {
@@ -49,6 +50,7 @@ export default function Login({ setToken }) {
 
   return (
     <div className="login-wrapper">
+      <Navi/>
       <h1>Please Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>

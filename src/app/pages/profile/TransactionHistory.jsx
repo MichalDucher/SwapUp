@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useAuth } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { TRANSACTION_URL } from '../../data/api';
 import { authorizedFetch } from '../../data/authorized-fetch';
 import Navi from '../../components/Navi';
+import './styles/TransactionHistory.css'; // Importa il file CSS per lo stile
 
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
@@ -30,8 +31,8 @@ const TransactionHistory = () => {
   };
 
   return (
-    <Container>
-        <Navi />
+    <Container className="transaction-history-container"> {/* Applica la classe CSS */}
+      <Navi />
       <h2>Transaction History</h2>
       <ul>
         {transactions.map((transaction) => (

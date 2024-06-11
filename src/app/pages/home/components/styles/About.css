@@ -1,18 +1,24 @@
 .about {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  width: 100%;
+  margin-left: auto;
+}
+
+.about h2 {
   
-  .about h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-  }
-  
-  .about p {
-    font-size: 1.2em;
-    line-height: 1.5;
-  }
-  
+  font-family:  "Times New Roman", Times, serif;
+
+  margin-bottom: 10px;
+  color: rgba(168, 11, 11, 0.808);
+  font-size: 44px;
+}
+
+.about p {
+  font-size: 1,3rem;
+  line-height: 1.5;
+  color: black;
+  width: 98%;
+
+}

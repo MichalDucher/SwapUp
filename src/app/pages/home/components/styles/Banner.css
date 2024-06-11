@@ -1,14 +1,22 @@
+
 .banner {
-  background-image: url('../../../../../assets/siema.jpg'); /* Dodaj ścieżkę do obrazu tła */
+  margin-top: 80px;
   background-size: cover;
   background-position: center;
-  color: black;
 }
 
 .banner h1 {
-  font-size: 3.5em; /* Dostosuj rozmiar czcionki według potrzeb */
+  font-size: 5em;
+  color: black;
+  text-align: center;
+  font-family:  "Times New Roman", Times, serif;
+  
 }
 
 .banner p {
-  font-size: 1.5em; /* Dostosuj rozmiar czcionki według potrzeb */
+  font-size: 1.5em; 
+  text-align: center;
+  font-family:  "Times New Roman", Times, serif;
+  color: black;
+
 }

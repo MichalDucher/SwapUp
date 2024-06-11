@@ -1,36 +1,50 @@
+/* Aggiungi questo stile nel tuo file CSS */
 .purchase-form {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .purchase-form h2 {
-    margin-bottom: 30px;
-  }
-  
-  .purchase-form label {
-    font-weight: bold;
-  }
-  
-  .purchase-form input[type="text"],
-  .purchase-form input[type="email"] {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    width: 100%;
-  }
-  
-  .purchase-form .btn-primary {
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .purchase-form {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Aggiungi una transizione per l'ombra */
+}
+
+.purchase-form:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Cambia l'ombra al passaggio del mouse */
+}
+
+.purchase-form h2 {
+  margin-bottom: 30px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
+.purchase-form label {
+  font-weight: bold;
+}
+
+.purchase-form input[type="text"],
+.purchase-form input[type="email"] {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+}
+
+.purchase-form .btn-primary {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Aggiungi una transizione per il colore di sfondo */
+}
+
+.purchase-form .btn-primary:hover {
+  background-color: #0069d9; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+@media (max-width: 768px) {
+  .purchase-form {
       max-width: 400px;
-    }
   }
-  
+}

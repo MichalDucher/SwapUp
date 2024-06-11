@@ -16,6 +16,7 @@ const AddOffer = () => {
     image: null,
   });
   const [categories, setCategories] = useState([]);
+  const [offers, setOffers] = useState([]);  // Stato per memorizzare le offerte
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -99,6 +100,8 @@ const AddOffer = () => {
       });
 
       if (response.ok) {
+        const newOffer = await response.json();
+        setOffers([...offers, newOffer]);  // Aggiungi la nuova offerta allo stato
         alert('Offer added successfully!');
       } else {
         const errorText = await response.text();
@@ -194,6 +197,20 @@ const AddOffer = () => {
           Add Offer
         </Button>
       </Form>
+
+      <h2>Offers</h2>
+      <Row>
+        {offers.map((offer) => (
+          <Col key={offer.id} sm="12" md="6" lg="4">
+            <div className="offer-item">
+              <h3>{offer.name}</h3>
+              <p>{offer.description}</p>
+              <p>{offer.price} USD</p>
+              {offer.image && <img src={offer.image} alt={offer.name} className="offer-image" />}
+            </div>
+          </Col>
+        ))}
+      </Row>
     </Container>
   );
 };

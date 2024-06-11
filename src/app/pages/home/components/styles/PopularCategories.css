@@ -1,33 +1,44 @@
-.popular-categories {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
+/* PopularCategories.css */
+
+.popular-categories-section {
+  padding: 20px;
+  color: black;
+  font-family:  "Times New Roman", Times, serif;
+}
+
+
+
+.popular-categories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   
-  .popular-categories h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-  }
-  
-  .popular-categories ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .popular-categories li {
-    display: inline-block;
-    background-color: #f4f4f4;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 20px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .popular-categories li:hover {
-    background-color: #e0e0e0;
-  }
-  
+}
+
+.popular-category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.popular-category-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.popular-category-item span {
+  font-size: 1.2em;
+  color: black;
+}
+
+.popular-category-item:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

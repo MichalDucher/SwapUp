@@ -76,61 +76,68 @@ const Offers = () => {
 
   return (
     <Container>
-      <Navi />
-      <h2 className="my-4">Offers</h2>
-      <Form className="mb-3">
-        <Form.Group controlId="formFilterCategory">
-          <Form.Label>Filter by Category:</Form.Label>
-          <Form.Control as="select" onChange={handleFilterChange}>
-            <option value="">All Categories</option>
-            {categories.map(category => (
-              <option key={category.id} value={category.name}>{category.name}</option>
-            ))}
-          </Form.Control>
-        </Form.Group>
-        <Form.Group controlId="formSearch">
-          <Form.Label>Search by Name:</Form.Label>
-          <Form.Control type="text" placeholder="Enter search term" onChange={handleSearchChange} />
-        </Form.Group>
-      </Form>
-      <Row>
-        {filteredItems.map((item) => (
-          <Col key={item.id} md={4} className="mb-4">
-            <Card>
-              <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text>Price: ${item.price}</Card.Text>
-                <Card.Text>Category: {item.category.name}</Card.Text>
-                <Button variant="primary" onClick={() => handleShowModal(item)}>
-                  View Details
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+  <Navi />
+  <div className="filter-section">
+    <h2 className="my-4">Offers</h2>
+    <Form className="mb-3">
+      <Form.Group controlId="formFilterCategory">
+        <Form.Label>Filter by Category:</Form.Label>
+        <Form.Control as="select" onChange={handleFilterChange}>
+          <option value="">All Categories</option>
+          {categories.map(category => (
+            <option key={category.id} value={category.name}>{category.name}</option>
+          ))}
+        </Form.Control>
+      </Form.Group>
+      <Form.Group controlId="formSearch">
+        <Form.Label>Search by Name:</Form.Label>
+        <Form.Control type="text" placeholder="Enter search term" onChange={handleSearchChange} />
+      </Form.Group>
+    </Form>
+  </div>
 
-      {selectedItem && (
-        <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>{selectedItem.name}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p><strong>Description:</strong> {selectedItem.description}</p>
-            <p><strong>Price:</strong> ${selectedItem.price}</p>
-            <p><strong>Category:</strong> {selectedItem.category.name}</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handlePurchase}>
-              {isAuthenticated ? 'Purchase' : 'Login to Purchase'}
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      )}
-    </Container>
+  <div className="offers-section">
+    <Row>
+      {filteredItems.map((item) => (
+        <Col key={item.id} md={4} className="mb-4">
+          <Card>
+            <Card.Img variant="top" src={item.image} className="offer-image" />
+            <Card.Body>
+              <Card.Title>{item.name}</Card.Title>
+              <Card.Text>Price: ${item.price}</Card.Text>
+              <Card.Text>Category: {item.category.name}</Card.Text>
+              <Button variant="primary" onClick={() => handleShowModal(item)}>
+                View Details
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))}
+    </Row>
+
+    {selectedItem && (
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{selectedItem.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p><strong>Description:</strong> {selectedItem.description}</p>
+          <p><strong>Price:</strong> ${selectedItem.price}</p>
+          <p><strong>Category:</strong> {selectedItem.category.name}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handlePurchase}>
+            {isAuthenticated ? 'Purchase' : 'Login to Purchase'}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    )}
+  </div>
+</Container>
+
   );
 };
 

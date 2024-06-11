@@ -9,8 +9,14 @@ const Navi = () => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand as={Link} to="/">Cultural Exchange</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Brand as={Link} to="/">
+        <img
+          src="../../../../../src/assets/Logo.png"
+          className="navbar-brand-img"
+          alt="Logo"
+        />
+      </Navbar.Brand>
+      {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link as={Link} to="/">Home</Nav.Link>
@@ -30,4 +36,3 @@ const Navi = () => {
 };
 
 export default Navi;
-

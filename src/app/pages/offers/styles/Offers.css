@@ -1,41 +1,89 @@
 /* pages/offers/Offers.css */
 
+.filter-section {
+  margin-bottom: 2rem; /* Aumenta il margine inferiore */
+  padding: 6rem; /* Aumenta il padding */
+  font-size: 2rem;
+  border-radius: 8px; /* Aggiunge un bordo arrotondato */
+  margin-left: -70%;
+  
+}
+
+/* Stile per l'intestazione delle offerte */
+.offers-heading {
+  
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: black;
+  font-family:  "Times New Roman", Times, serif;
+  
+}
+
+/* Stile per la sezione del filtro */
+.filter-section {
+  margin-bottom: 1rem;
+  
+}
+
+
+/* Stile generale per le card */
 .card {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  .card-text {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-  }
-  
-  .modal-title {
-    font-size: 1.5rem;
-  }
-  
-  .modal-body p {
-    font-size: 1rem;
-  }
-  
-  .my-4 {
-    margin-top: 1.5rem !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per il titolo della card */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Stile per il testo della card */
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Stile per l'immagine della card */
+.card-img-top {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+/* Stile per i bottoni */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Stile per i bottoni al passaggio del mouse */
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+/* Stile per il titolo del modal */
+.modal-title {
+  font-size: 1.5rem;
+}
+
+/* Stile per il testo del modal */
+.modal-body p {
+  font-size: 1rem;
+}
+
+/* Stile per i margini */
+.my-4 {
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Stile per l'immagine dell'offerta */
+.offer-image {
+  max-width: 100%;
+  max-height: 200px; /* Imposta l'altezza massima desiderata */
+  object-fit: cover; /* Per mantenere l'aspetto proporzionato */
+}

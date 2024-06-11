@@ -1,16 +1,30 @@
 import React from 'react';
-import './styles/PopularCategories.css'; // Importujemy plik CSS
+import './styles/PopularCategories.css'; // Importa il file CSS
 
 const PopularCategories = () => (
-  <div className="popular-categories">
-    <h2 className="mb-4">Popular Categories</h2> {/* Dodajemy klasę "mb-4" dla marginesu na dole */}
-    <ul className="list-group">
-      <li className="list-group-item">Books</li> {/* Używamy klasy "list-group-item" dla każdego elementu listy */}
-      <li className="list-group-item">Music</li>
-      <li className="list-group-item">Art</li>
-      {/* Możesz dynamicznie renderować elementy na podstawie danych */}
-    </ul>
+  <div className="popular-categories-section">
+    <h2>Popular Categories:</h2>
+    <div className="popular-categories-grid">
+      <div className="popular-category-item">
+        <img src="../../../../../src/assets/Libri.png" alt="Libri" />
+        <span>Books</span>
+      </div>
+      <div className="popular-category-item">
+        <img src="../../../../../src/assets/Film.png" alt="Film" />
+        <span>Movies</span>
+      </div>
+      <div className="popular-category-item">
+        <img src="../../../../../src/assets/Musica.png" alt="Musica" />
+        <span>Music</span>
+      </div>
+      <div className="popular-category-item">
+        <img src="../../../../../src/assets/Arte.png" alt="Art" />
+        <span>Art</span>
+      </div>
+      {/* Aggiungi altre categorie qui */}
+    </div>
   </div>
 );
 
 export default PopularCategories;
+

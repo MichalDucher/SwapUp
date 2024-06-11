@@ -1,35 +1,68 @@
 /* src/pages/add-offer/styles/AddOffer.css */
+.container {
+  width: 100%;
+  
+}
+
 .add-offer-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .add-offer-container h2 {
-    margin-bottom: 1.5rem;
-    font-size: 1.75rem;
-  }
-  
-  .add-offer-container .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .add-offer-container .form-label {
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-  
-  .add-offer-container .form-control {
-    border-radius: 4px;
-    padding: 0.75rem;
-  }
-  
-  .add-offer-container .btn-primary {
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4.8rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-offer-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.add-offer-container .form-group {
+  margin-bottom: 1rem;
+}
+
+.add-offer-container .form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.add-offer-container .form-control {
+  border-radius: 4px;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.add-offer-container .btn-primary {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.offer-item {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.offer-item h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.offer-item p {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.offer-image {
+ 
+  width: 40%;
+  height: auto;
+  border-radius: 8px;
+}

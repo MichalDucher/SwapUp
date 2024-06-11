@@ -1,0 +1,16 @@
+
+.home {
+    background-image: url('../../../../../assets/Sfondo2.png'); /* Imposta l'immagine di sfondo */
+    background-size: cover; /* Imposta la dimensione dell'immagine di sfondo per coprire l'intero elemento */
+    background-position: center; /* Imposta la posizione dell'immagine di sfondo al centro */
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  /* Stili specifici per i componenti della Home */
+  .home-component {
+    width: 80%; /* Larghezza del componente */
+    margin-bottom: 20px; /* Margine inferiore per separare i componenti */
+    
+  }
+  
