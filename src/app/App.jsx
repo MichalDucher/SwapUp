@@ -10,6 +10,7 @@ import Login from './pages/login/Login';
 import Purchase from './pages/purchase/Purchase';
 import AddOffer from './pages/offers/AddOffer';
 import TransactionHistory from './pages/profile/TransactionHistory';
+import Register from './pages/register/Register';
 
 
 const App = () => {
@@ -26,6 +27,10 @@ const App = () => {
           <Route
             path="/login"
             element={<Login setToken={setToken} />} 
+          />
+          <Route
+            path="/register"
+            element={<Register setToken={setToken} />} // Aggiungi la route per il componente Register
           />
           <Route path="/purchase/:id" element={<Purchase />} />
           <Route path="/transaction-history" element={<TransactionHistory />} />

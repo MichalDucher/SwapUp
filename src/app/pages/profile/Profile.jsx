@@ -53,7 +53,7 @@ const Profile = () => {
 
     try {
       const response = await authorizedFetch(`${AUTH_URL}/change-password`, {
-        method: 'POST',
+        method: 'PUT',
         body: JSON.stringify(payload),
       });
 
@@ -64,6 +64,9 @@ const Profile = () => {
       } else {
         const errorText = await response.text();
         throw new Error(errorText);
+        console.error('Error updating password:', error);
+        setMessage('Failed to update password');
+        setMessageType('danger');
       }
     } catch (error) {
       console.error('Error updating password:', error);

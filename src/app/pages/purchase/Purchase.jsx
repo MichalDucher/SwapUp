@@ -43,6 +43,21 @@ const Purchase = () => {
       });
 
       if (response.ok) {
+
+        const deleteResponse = await authorizedFetch(`${ITEMS_URL}/${id}`, {
+          method: 'DELETE',
+        });
+  
+        if (deleteResponse.ok) {
+          setMessage({ text: 'Purchase successful and item deleted!', type: 'success' });
+          setTimeout(() => {
+            navigate('/offers');
+          }, 3000);
+        } else {
+          const deleteErrorText = await deleteResponse.text();
+          throw new Error(deleteErrorText);
+        }
+
         setMessage({ text: 'Purchase successful!', type: 'success' });
         setTimeout(() => {
           navigate('/offers');
