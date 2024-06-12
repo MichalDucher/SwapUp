@@ -117,10 +117,11 @@ const Offers = () => {
 
     {selectedItem && (
       <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>{selectedItem.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <p><img src={`${selectedItem.image}`} alt='Product Image' className='product-image'/></p>
           <p><strong>Description:</strong> {selectedItem.description}</p>
           <p><strong>Price:</strong> ${selectedItem.price}</p>
           <p><strong>Category:</strong> {selectedItem.category.name}</p>

@@ -74,8 +74,7 @@ const AddOffer = () => {
         base64Image = await convertImageToBase64(formData.image);
       }
 
-      const payload = {
-        id: "", // You might need to set this or let the server handle it
+      const payload = {      
         name: formData.name,
         description: formData.description,
         price: parseFloat(formData.price),

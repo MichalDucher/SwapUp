@@ -18,8 +18,8 @@ const PopularCategories = () => (
         <span>Music</span>
       </div>
       <div className="popular-category-item">
-        <img src="../../../../../src/assets/Arte.png" alt="Art" />
-        <span>Art</span>
+        <img src="../../../../../src/assets/cassette.jpg" alt="Cassette" />
+        <span>Cassetes</span>
       </div>
       {/* Aggiungi altre categorie qui */}
     </div>
